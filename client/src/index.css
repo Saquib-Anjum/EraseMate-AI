@@ -1,1 +1,28 @@
 @import "tailwindcss";
+.slider{
+    -webkit-appearance: none;
+    height:100;
+    background: transparent;
+
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none; /* Remove default styling */
+    width: 30px;
+    height: 30px;
+    background-image: url('/slide_icon.svg'); /* Path to your custom thumb icon */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background-image: url('/slide_icon.svg'); /* Path to your custom thumb icon */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+  }
