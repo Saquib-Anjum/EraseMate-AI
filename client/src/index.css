@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Nanum+Gothic+Coding&family=Outfit:wght@100..900&family=Pacifico&family=Prata&display=swap');
+
 @import "tailwindcss";
+
+*{
+  font-family: Outfit;
+}
 .slider{
     -webkit-appearance: none;
     height:100;
     background: transparent;
 
 }
+
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Remove default styling */
     appearance: none; /* Remove default styling */
