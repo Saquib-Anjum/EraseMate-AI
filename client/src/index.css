@@ -33,3 +33,7 @@
     background-size: cover;
     cursor: pointer;
   }
+
+.bg-layers{
+ background-image: url(/bg_layer.png); 
+}
