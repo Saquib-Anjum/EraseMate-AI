@@ -12,7 +12,9 @@ app.use(express.json());
 app.use(cors())
 //api routes
 
-
+app.get('/', (req, res) => {
+    res.send("Hello World");
+  });
 //listen app
 app.listen(PORT,()=>{
     console.log(`server is running in  : http://localhost:${PORT}`)
