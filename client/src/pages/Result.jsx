@@ -11,14 +11,14 @@ const Result = () => {
           <div>
             <p className="font-semibold text-gray-5=600 mt-2">Original </p>
           
-           <img src={assets.image_w_bg} alt="" className="rounded-md border" />
+           <img src={assets.image_w_bg1} alt="" className="rounded-md border" />
          
           </div>
           {/* right side */}
           <div className="flex flex-col">
             <p className="font-semibold text-gray-5=600 mt-2">Background Removed</p>
             <div className="rounded-md border border-gray-300 h-full relative bg-layers overflow-hidden ">
-              <img src={assets.image_wo_bg} alt="" className=" rounded-md border" />
+              <img src={assets.image_wo_bg1} alt="" className=" rounded-md border" />
               {/* <div className="absolute right-1/2 bottom-1/2 transform translate-x-1/2 translate-y-1/2">
                 <div className="border-4 border-violet-600 rounded-full h-12 w-12 border-t-transparent animate-spin">
 

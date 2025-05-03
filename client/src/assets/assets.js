@@ -9,8 +9,8 @@ import remove_bg_icon from './remove_bg_icon.svg'
 import upload_btn_icon from './upload_btn_icon.svg'
 import upload_icon from './upload_icon.svg'
 import download_icon from './download_icon.svg'
-import image_w_bg from './image_w_bg.png'
-import image_wo_bg from './image_wo_bg.png'
+import image_w_bg1 from './image_w_bg1.png'
+import image_wo_bg1 from './image_wo_bg1.png'
 import facebook_icon from './facebook_icon.svg'
 import google_plus_icon from './google_plus_icon.svg'
 import twitter_icon from './twitter_icon.svg'
@@ -29,8 +29,8 @@ export const assets = {
     remove_bg_icon,
     upload_icon,
     download_icon,
-    image_w_bg,
-    image_wo_bg,
+    image_w_bg1,
+    image_wo_bg1,
     facebook_icon,
     google_plus_icon,
     twitter_icon,
