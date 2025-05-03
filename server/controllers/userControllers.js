@@ -1,13 +1,28 @@
+import dotenv from 'dotenv';
+dotenv.config(); // ✅ ensures env variables are available
 import userModel from '../models/userModel.js';
-import svixPackage from 'svix';
-const { webhook } = svixPackage;
+
+import svix from 'svix';
+const { Webhook } = svix;
+
+
 
 const clerkwebhooks = async (req, res) => {
-    try {
-        // Create Svix instance with Clerk webhook secret
-        const whook = new webhook(process.env.CLERK_WEBHOOK_SECRET);
+    try { 
+        const requiredHeaders = ["svix-id", "svix-timestamp", "svix-signature"];
+        for (const header of requiredHeaders) {
+            if (!req.headers[header]) {
+                return res.status(400).json({
+                    success: false,
+                    message: `Missing required header: ${header}`
+                });
+            }
+        }
+        const secret = process.env.CLERK_WEBHOOK_SECRET;
+        console.log("CLERK_WEBHOOK_SECRET", secret); // Debug check
 
-        // Verify the webhook request
+        const whook = new Webhook(secret);
+
         await whook.verify(JSON.stringify(req.body), {
             "svix-id": req.headers["svix-id"],
             "svix-timestamp": req.headers["svix-timestamp"],
@@ -15,7 +30,9 @@ const clerkwebhooks = async (req, res) => {
         });
 
         const { data, type } = req.body;
-        console.log("Data ",data)
+        console.log("Webhook Event Type:", type);
+        console.log("Data:", data);
+
         switch (type) {
             case "user.created": {
                 const userData = {
@@ -26,8 +43,7 @@ const clerkwebhooks = async (req, res) => {
                     photo: data.image_url
                 };
                 await userModel.create(userData);
-                res.status(200).json({ success: true, message: "User created successfully" });
-                break;
+                return res.status(200).json({ success: true, message: "User created successfully" });
             }
             case "user.updated": {
                 const userData = {
@@ -37,21 +53,18 @@ const clerkwebhooks = async (req, res) => {
                     photo: data.image_url
                 };
                 await userModel.findOneAndUpdate({ clerkId: data.id }, userData);
-                res.status(200).json({ success: true, message: "User updated successfully" });
-                break;
+                return res.status(200).json({ success: true, message: "User updated successfully" });
             }
             case "user.deleted": {
                 await userModel.findOneAndDelete({ clerkId: data.id });
-                res.status(200).json({ success: true, message: "User deleted successfully" });
-                break;
+                return res.status(200).json({ success: true, message: "User deleted successfully" });
             }
             default:
-                res.status(400).json({ success: false, message: "Unsupported event type" });
-                break;
+                return res.status(400).json({ success: false, message: "Unsupported event type" });
         }
     } catch (err) {
         console.error(`Webhook error: ${err.message}`);
-        res.status(500).json({ success: false, message: err.message });
+        return res.status(500).json({ success: false, message: err.message });
     }
 };
 
