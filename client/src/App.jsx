@@ -8,6 +8,7 @@ import BuyCredit from './pages/BuyCredit';
 import Result from './pages/Result';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import { ToastContainer, toast } from 'react-toastify';
 function App() {
  
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route  path='/buy' element={<BuyCredit/>}/>
     </Routes>
     <Footer/>
+    <ToastContainer />
    </div>
   )
 }

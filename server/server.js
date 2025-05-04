@@ -14,6 +14,9 @@ await connectDB()
 app.use(express.json());
 app.use(cors())
 //api routes
+// 👇 Route-specific raw parser for Clerk webhooks (important!)
+import { clerkwebhooks } from './controllers/userControllers.js';
+app.post('/api/user/webhooks', express.raw({ type: '*/*' }), clerkwebhooks);
   app.use('/api/user',userRouter)
 //listen app
 app.listen(PORT,()=>{

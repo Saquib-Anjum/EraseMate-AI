@@ -4,11 +4,12 @@ import userModel from '../models/userModel.js';
 
 import svix from 'svix';
 const { Webhook } = svix;
-
+import authUser from '../middlewares/auth.js'
 
 
 const clerkwebhooks = async (req, res) => {
     try { 
+        console.log("Headers:", req.headers);
         const requiredHeaders = ["svix-id", "svix-timestamp", "svix-signature"];
         for (const header of requiredHeaders) {
             if (!req.headers[header]) {
@@ -68,4 +69,19 @@ const clerkwebhooks = async (req, res) => {
     }
 };
 
-export { clerkwebhooks };
+
+//api controller for credits of user
+const userCredit = async( req , res )=>{
+try{
+const {clerkId} = req.body;
+const userData = await userModel.findOne({clerkId});
+res.json({
+    success:true,
+    credit:userData.creditBalance
+})
+}catch(err){
+    console.error(err.message);
+        return res.status(500).json({ success: false, message: err.message });
+}
+}
+export { clerkwebhooks ,userCredit };
