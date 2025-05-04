@@ -73,15 +73,18 @@ const clerkwebhooks = async (req, res) => {
 //api controller for credits of user
 const userCredit = async( req , res )=>{
 try{
-const {clerkId} = req.body;
+    const {clerkId }= req.body;
 const userData = await userModel.findOne({clerkId});
 res.json({
     success:true,
-    credit:userData.creditBalance
+    credits:userData.creditBalance
 })
 }catch(err){
     console.error(err.message);
         return res.status(500).json({ success: false, message: err.message });
 }
 }
+
+//payment gatway
+const razorpayInstance = 
 export { clerkwebhooks ,userCredit };
