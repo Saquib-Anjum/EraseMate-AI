@@ -4,7 +4,7 @@ import arrow_icon from './arrow_icon.svg'
 import header_img from './header_img.png'
 import header_img2 from './header_img2.png'
 import header_img3 from './header_img3.png'
-
+import favicon1 from './favicon1.png'
 import remove_bg_icon from './remove_bg_icon.svg'
 import upload_btn_icon from './upload_btn_icon.svg'
 import upload_icon from './upload_icon.svg'
@@ -36,7 +36,8 @@ export const assets = {
     twitter_icon,
     upload_btn_icon,
     credit_icon,
-    EraseMateAI
+    EraseMateAI,
+    favicon1,
 }
 
 export const testimonialsData = [
