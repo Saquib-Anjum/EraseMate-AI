@@ -1,6 +1,6 @@
 # 🧽 EraseMateAI - AI Powered Background Remover
 
-![EraseMateAI Banner](./assets/banner.png) <!-- Optional: Replace with actual banner or logo -->
+![EraseMateAI Banner](https://github.com/Saquib-Anjum/EraseMate-AI/blob/main/result/image.png) <!-- Optional: Replace with actual banner or logo -->
 
 EraseMateAI is a blazing-fast, AI-powered background remover that helps users instantly erase backgrounds from images using the **Clipdrop API**. No complicated tools — just upload your image and get a clean result! 🪄
 
@@ -32,13 +32,7 @@ EraseMateAI is a blazing-fast, AI-powered background remover that helps users in
 
 ---
 
-## 📸 Demo
 
-🔗 Live Website: [https://erasemateai.vercel.app](https://erasemateai.vercel.app) <!-- Replace with actual URL if available -->
-
-![Demo GIF](./assets/demo.gif) <!-- Optional: Add screenshot or gif -->
-
----
 
 ## 🧑‍💻 How It Works
 
